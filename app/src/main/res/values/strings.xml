@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GithubSubmit1</string>
+    <string name="follower_counter">Follower Counter</string>
+    <string name="github_username">Username</string>
+    <string name="username">Blackmagic</string>
+    <string name="his_own_name">Mochamad Rafli</string>
+    <string name="company1">Cv.margacinta</string>
+    <string name="city1">Bojongsoang - Bandung Jawa Barat</string>
+    <string name="follower1">Follower: 1600</string>
+    <string name="following1">Following: 16</string>
+    <string name="repository">repository: 4</string>
+    <string name="profile_pic">profile_pic</string>
+    <string name="user_fullname">mYnameIsYou</string>
+    <string name="following_detail">following: 16</string>
+
+</resources>
