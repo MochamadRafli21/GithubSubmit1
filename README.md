@@ -1,4 +1,4 @@
-# GithubSubmit1
+# GithubSubmit BFAA DICODING
 This is Submission 1 for BFAA Dicoding
 
 in this submission we have to present github user data provided by dicoding
