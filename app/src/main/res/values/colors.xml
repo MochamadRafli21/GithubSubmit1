@@ -7,4 +7,5 @@
     <color name="darker_blue">#001A2E</color>
     <color name="black">#151515</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="greyish">#E3EBED</color>
 </resources>

@@ -1,119 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="?attr/colorSecondaryVariant"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background"
-        android:tintMode="screen"
-        app:tint="@color/dark_blue"/>
-
-
-    <LinearLayout
-        android:background="@drawable/roundstyle"
-        android:id="@+id/main_profile"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="20dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:paddingLeft="-20dp"
-        android:paddingRight="-20dp"
-        android:orientation="vertical">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:scaleType="centerCrop"
-            android:id="@+id/main_user_picture"
-            android:src="@drawable/rafli"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            tools:src="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/main_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/username"
-            android:textColor="?attr/colorOnPrimary"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
-
-        <TextView
-            android:id="@+id/main_name"
-            android:textColor="?attr/colorOnPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/his_own_name"
-            android:textSize="12sp"/>
-
-        <TextView
-            android:id="@+id/main_company"
-            android:textColor="?attr/colorOnPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/company1"
-            android:textSize="12sp"/>
-
-        <TextView
-            android:textColor="?attr/colorOnPrimary"
-            android:padding="8dp"
-            android:id="@+id/main_user_location"
-            android:text="@string/city1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <TextView
-                android:textColor="?attr/colorOnPrimary"
-                android:padding="8dp"
-                android:id="@+id/main_user_follower"
-                android:text="@string/follower1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textColor="?attr/colorOnPrimary"
-                android:padding="8dp"
-                android:id="@+id/main_user_following"
-                android:text="@string/following1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:textColor="?attr/colorOnPrimary"
-                android:padding="8dp"
-                android:id="@+id/main_user_repostory"
-                android:text="@string/repository"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-
-    </LinearLayout>
+        android:id="@+id/fragent_layout" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:background="@drawable/notsoroundstyle"
         android:id="@+id/rv_github_user"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/main_profile"
         tools:listitem="@layout/item_user_row"/>
 
 
-</RelativeLayout>
+</LinearLayout>
