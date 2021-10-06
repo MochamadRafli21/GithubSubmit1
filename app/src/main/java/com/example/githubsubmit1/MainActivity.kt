@@ -1,14 +1,12 @@
 package com.example.githubsubmit1
 
 import android.app.SearchManager
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubsubmit1.databinding.ActivityMainBinding
@@ -89,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         listUsersAdapter.setOnItemClickCallback(object : ListUsersAdapter.OnItemClickCallback{
             override fun onItemClicked(data: ItemsItem) {
                 val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
-                intent.putExtra(INTENT_PARCELABLE, data)
+                intent.putExtra(INTENT_PARCELABLE, data.login)
                 startActivity(intent)
             }
 

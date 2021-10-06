@@ -8,6 +8,7 @@
     android:layout_gravity="center">
     
     <RelativeLayout
+        android:id="@+id/user_card"
         android:background="@drawable/roundstyle"
         android:layout_width="match_parent"
         android:layout_height="120dp">

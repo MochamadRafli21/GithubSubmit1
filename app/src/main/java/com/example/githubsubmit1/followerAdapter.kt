@@ -1,6 +1,5 @@
 package com.example.githubsubmit1
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,16 +8,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import kotlin.collections.ArrayList
 
 @Suppress("DEPRECATION")
-class ListUsersAdapter(private val listUsers: ArrayList<ItemsItem>): RecyclerView.Adapter<ListUsersAdapter.CardViewViewHolder>() {
+class FollowerAdapter(private val listUsers: ArrayList<UserFollowerResponseItem>): RecyclerView.Adapter<FollowerAdapter.CardViewViewHolder>() {
 
-    private lateinit var onItemClickCallback: OnItemClickCallback
+//    private lateinit var onItemClickCallback: OnItemClickCallback
 
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
-        this.onItemClickCallback = onItemClickCallback
-    }
+//    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
+//        this.onItemClickCallback = onItemClickCallback
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CardViewViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_user_row, parent,false))
 
@@ -33,10 +31,10 @@ class ListUsersAdapter(private val listUsers: ArrayList<ItemsItem>): RecyclerVie
         holder.tvUsername.text = user.login
         holder.tvUserUrl.text = user.htmlUrl
         holder.tvCompany.text = user.organizationsUrl
-        holder.itemView.setOnClickListener{ onItemClickCallback.onItemClicked(listUsers[holder.adapterPosition])}
+//        holder.itemView.setOnClickListener{ onItemClickCallback.onItemClicked(listUsers[holder.adapterPosition])}
     }
 
-    inner class CardViewViewHolder (itemView: View):RecyclerView.ViewHolder(itemView) {
+    inner class CardViewViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
         var tvUsername: TextView = itemView.findViewById(R.id.user_name)
         var tvUserUrl : TextView = itemView.findViewById(R.id.user_html)
         var tvCompany : TextView = itemView.findViewById(R.id.user_company)
@@ -45,11 +43,11 @@ class ListUsersAdapter(private val listUsers: ArrayList<ItemsItem>): RecyclerVie
 
     override fun getItemCount() = listUsers.size
 
-    interface OnItemClickCallback {
-        fun onItemClicked(data: ItemsItem)
-    }
+//    interface OnItemClickCallback {
+//        fun onItemClicked(data:UserFollowerResponseItem)
+//    }
 
-    fun setUserData(data: List<ItemsItem>){
+    fun setFollowerData(data: List<UserFollowerResponseItem>){
         listUsers.clear()
         listUsers.addAll(data)
         notifyDataSetChanged()
