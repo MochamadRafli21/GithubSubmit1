@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:gravity="center"
+    android:background="@color/dark_blue"
     tools:context=".UserDetailActivity">
 
-
     <LinearLayout
-        android:background="@drawable/roundstyle"
-        android:layout_height="400dp"
-        android:layout_width="350dp"
+        android:background="?attr/colorPrimary"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:scaleType="centerCrop"
@@ -64,41 +64,20 @@
             android:text="@string/city1"
             android:padding="10dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:textAlignment="center"
-            android:gravity="center">
-
-            <TextView
-                android:textColor="?attr/colorOnPrimary"
-                android:id="@+id/following_detail"
-                android:maxLines="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/following_detail"
-                android:padding="10dp"/>
-            <TextView
-                android:textColor="?attr/colorOnPrimary"
-                android:id="@+id/user_follower_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/follower1"
-                android:padding="10dp"/>
-
-            <TextView
-                android:textColor="?attr/colorOnPrimary"
-                android:id="@+id/detail_user_repostory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/repository"
-                android:padding="10dp"/>
-        </LinearLayout>
-
-
-
-
     </LinearLayout>
 
-</RelativeLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:tabTextColor="?attr/colorOnPrimary"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+</LinearLayout>

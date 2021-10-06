@@ -4,24 +4,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorSecondary"
     android:layout_margin="20dp"
     android:layout_gravity="center">
     
     <RelativeLayout
-        android:background="?attr/colorSecondary"
+        android:id="@+id/user_card"
+        android:background="@drawable/roundstyle"
         android:layout_width="match_parent"
         android:layout_height="120dp">
 
         <ImageView
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:layout_width="115dp"
             android:layout_height="match_parent"
             tools:src="@tools:sample/avatars"
+            android:background="@drawable/roundstyle"
             android:contentDescription="@string/profile_pic"
             android:id="@+id/user_profile_picture"
             />
         <LinearLayout
+            android:background="@drawable/roundstyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toEndOf="@+id/user_profile_picture"
@@ -38,7 +40,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/user_full_name"
+                android:id="@+id/user_html"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
