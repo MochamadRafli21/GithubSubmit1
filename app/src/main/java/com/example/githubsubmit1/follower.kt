@@ -1,6 +1,8 @@
 package com.example.githubsubmit1
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,31 +35,26 @@ class follower : Fragment() {
     }
     private fun showRecyclerCard(){
         _binding?.rvGithubUser?.layoutManager = LinearLayoutManager(this.context)
-        _binding!!.rvGithubUser.adapter = followerAdapter
-
-
+        _binding?.rvGithubUser?.adapter = followerAdapter
     }
     private fun getFollower() {
         val client = ApiConfig.getApiService().getUserFollower("hendisantika")
-        client.enqueue(object : retrofit2.Callback<UserFollowerResponse> {
+        client.enqueue(object : retrofit2.Callback<List<UserFollowerResponseItem>> {
             override fun onResponse(
-                    call: Call<UserFollowerResponse>,
-                    response: Response<UserFollowerResponse>
+                    call: Call<List<UserFollowerResponseItem>>,
+                    response: Response<List<UserFollowerResponseItem>>
             ) {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null) {
-
-                        setFollowerData(responseBody.userFollowerResponse as List<UserFollowerResponseItem>)
+                        setFollowerData(responseBody)
                     }
                 }
             }
 
-            override fun onFailure(call: Call<UserFollowerResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+            override fun onFailure(call: Call<List<UserFollowerResponseItem>>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message}")
             }
-
-
         })
     }
 

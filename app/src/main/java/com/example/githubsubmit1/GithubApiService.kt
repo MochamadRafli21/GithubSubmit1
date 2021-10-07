@@ -10,9 +10,9 @@ interface GithubApiService {
     @GET("users/{username}")
     fun getUserDetail(@Path("username") username: String): Call<UserDetailResponse>
 
-    @GET("{username}/follower")
-    fun getUserFollower(@Path("username") username: String):Call<UserFollowerResponse>
+    @GET("users/{username}/followers")
+    fun getUserFollower(@Path("username") username: String):Call<List<UserFollowerResponseItem>>
 
-    @GET("{username}/following")
-    fun getUserFollowing(@Path("username") username: String):Call<UserFollowingResponse>
+    @GET("users/{username}/following")
+    fun getUserFollowing(@Path("username") username: String):Call<List<UserFollowingResponseItem>>
 }
