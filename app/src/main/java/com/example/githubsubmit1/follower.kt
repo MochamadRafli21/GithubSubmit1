@@ -23,7 +23,6 @@ class follower : Fragment() {
         super.onCreate(savedInstanceState)
         followerAdapter = FollowerAdapter(arrayListOf())
         getFollower()
-        showRecyclerCard()
     }
 
     override fun onCreateView(
@@ -60,6 +59,7 @@ class follower : Fragment() {
 
     private fun setFollowerData(items: List<UserFollowerResponseItem>) {
         followerAdapter.setFollowerData(items)
+        showRecyclerCard()
     }
 
 }
