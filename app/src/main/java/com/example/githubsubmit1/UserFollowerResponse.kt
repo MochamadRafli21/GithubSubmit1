@@ -2,12 +2,6 @@ package com.example.githubsubmit1
 
 import com.google.gson.annotations.SerializedName
 
-data class UserFollowerResponse(
-
-	@field:SerializedName("UserFollowerResponse")
-	val userFollowerResponse: List<UserFollowerResponseItem?>? = null
-)
-
 data class UserFollowerResponseItem(
 
 	@field:SerializedName("gists_url")

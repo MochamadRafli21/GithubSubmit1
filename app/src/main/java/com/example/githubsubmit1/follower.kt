@@ -37,7 +37,7 @@ class follower : Fragment() {
         _binding?.rvGithubUser?.adapter = followerAdapter
     }
     private fun getFollower() {
-        val client = ApiConfig.getApiService().getUserFollower("hendisantika")
+        val client = ApiConfig.getApiService().getUserFollower((requireActivity() as UserDetailActivity).binding.userNameDetail.text.toString())
         client.enqueue(object : retrofit2.Callback<List<UserFollowerResponseItem>> {
             override fun onResponse(
                     call: Call<List<UserFollowerResponseItem>>,

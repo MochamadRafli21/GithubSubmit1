@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.githubsubmit1.databinding.FragmentFollowingBinding
 import retrofit2.Call
 import retrofit2.Response
@@ -39,7 +38,7 @@ class following : Fragment() {
 
     }
     private fun getFollowing() {
-        val client = ApiConfig.getApiService().getUserFollowing("hendisantika")
+        val client = ApiConfig.getApiService().getUserFollowing((requireActivity() as UserDetailActivity).binding.userNameDetail.text.toString())
         client.enqueue(object : retrofit2.Callback<List<UserFollowingResponseItem>> {
             override fun onResponse(
                     call: Call<List<UserFollowingResponseItem>>,

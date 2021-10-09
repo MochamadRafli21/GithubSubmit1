@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_user_detail.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/fragment_follower.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/fragment_following.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/item_user_row.xml" value="0.1984375" />
       </map>
     </option>

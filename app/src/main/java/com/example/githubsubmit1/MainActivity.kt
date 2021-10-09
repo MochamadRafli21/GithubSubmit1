@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
 
     companion object {
-        private const val TAG = "MainActivity"
+        const val TAG = "MainActivity"
         private var USERNAME = "username"
         val INTENT_PARCELABLE = "OBJECT INTENT"
     }
