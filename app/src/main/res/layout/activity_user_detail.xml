@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -9,75 +9,97 @@
     tools:context=".UserDetailActivity">
 
     <LinearLayout
-        android:background="?attr/colorPrimary"
-        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:scaleType="centerCrop"
             android:id="@+id/user_profile_picture_detail"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            tools:src="@tools:sample/avatars"
-            android:padding="4dp"/>
+            android:padding="4dp"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/user_name_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="?attr/colorOnPrimary"
-            android:text="@string/username"
-            android:textStyle="bold"
-            android:textSize="24sp"
             android:paddingBottom="4dp"
-            />
+            android:text="@string/username"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/user_full_name_detail"
             android:layout_width="wrap_content"
-            android:textColor="?attr/colorOnPrimary"
             android:layout_height="wrap_content"
-            android:text="@string/user_fullname"
-            android:textSize="16sp"
             android:paddingBottom="4dp"
-            />
+            android:text="@string/user_fullname"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/user_full_company_detail"
             android:layout_width="wrap_content"
-            android:textColor="?attr/colorOnPrimary"
             android:layout_height="wrap_content"
-            android:text="@string/company1"
-            android:textSize="16sp"
             android:paddingBottom="4dp"
-            />
+            android:text="@string/company1"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="16sp" />
 
         <TextView
-            android:textColor="?attr/colorOnPrimary"
             android:id="@+id/city_detail"
-            android:maxLines="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:padding="10dp"
             android:text="@string/city1"
-            android:padding="10dp"/>
+            android:textColor="?attr/colorOnPrimary" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="341dp"
+        android:layout_marginBottom="171dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tabs"
+        tools:visibility="visible" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        app:tabTextColor="?attr/colorOnPrimary"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:tabTextColor="?attr/colorOnPrimary" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabs" />
 
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

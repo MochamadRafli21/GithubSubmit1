@@ -6,7 +6,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.View
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubsubmit1.databinding.ActivityMainBinding
@@ -55,22 +57,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun findUser() {
+        showLoading(true)
         val client = ApiConfig.getApiService().getUsers(USERNAME)
         client.enqueue(object : retrofit2.Callback<GithubApiUserResponse> {
             override fun onResponse(
                 call: Call<GithubApiUserResponse>,
                 response: Response<GithubApiUserResponse>
             ) {
+                showLoading(false)
                 if (response.isSuccessful) {
                     val responseBody = response.body()
-                    if (responseBody != null) {
+                    if (responseBody != null && responseBody.totalCount != 0) {
                         setGithubUserData(responseBody.items)
+                    }else{
+                        showLoading(false)
+                        Toast.makeText(applicationContext, "Cant find user data", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
 
             override fun onFailure(call: Call<GithubApiUserResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message}")
+                Toast.makeText(applicationContext, "Cant find user data", Toast.LENGTH_SHORT).show()
             }
 
         })
@@ -92,6 +100,14 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
 }
