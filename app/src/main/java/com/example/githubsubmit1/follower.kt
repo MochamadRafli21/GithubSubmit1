@@ -38,12 +38,14 @@ class follower : Fragment() {
         _binding?.rvGithubUser?.adapter = followerAdapter
     }
     private fun getFollower() {
+        showLoading(true)
         val client = ApiConfig.getApiService().getUserFollower((requireActivity() as UserDetailActivity).binding.userNameDetail.text.toString())
         client.enqueue(object : retrofit2.Callback<List<UserFollowerResponseItem>> {
             override fun onResponse(
                     call: Call<List<UserFollowerResponseItem>>,
                     response: Response<List<UserFollowerResponseItem>>
             ) {
+                showLoading(false)
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null) {
@@ -54,6 +56,7 @@ class follower : Fragment() {
 
             override fun onFailure(call: Call<List<UserFollowerResponseItem>>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message}")
+                showLoading(false)
             }
         })
     }
@@ -61,6 +64,14 @@ class follower : Fragment() {
     private fun setFollowerData(items: List<UserFollowerResponseItem>) {
         followerAdapter.setFollowerData(items)
         showRecyclerCard()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            _binding?.progressBar?.visibility = View.VISIBLE
+        } else {
+            _binding?.progressBar?.visibility = View.GONE
+        }
     }
 
 }

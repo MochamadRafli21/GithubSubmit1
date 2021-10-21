@@ -21,6 +21,7 @@ class following : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         followingAdapter = FollowingAdapter(arrayListOf())
+        showLoading(true)
         getFollowing()
     }
 
@@ -38,12 +39,14 @@ class following : Fragment() {
 
     }
     private fun getFollowing() {
+        showLoading(true)
         val client = ApiConfig.getApiService().getUserFollowing((requireActivity() as UserDetailActivity).binding.userNameDetail.text.toString())
         client.enqueue(object : retrofit2.Callback<List<UserFollowingResponseItem>> {
             override fun onResponse(
                     call: Call<List<UserFollowingResponseItem>>,
                     response: Response<List<UserFollowingResponseItem>>
             ) {
+                showLoading(false)
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null) {
@@ -53,6 +56,7 @@ class following : Fragment() {
             }
 
             override fun onFailure(call: Call<List<UserFollowingResponseItem>>, t: Throwable) {
+                showLoading(false)
                 Log.e(ContentValues.TAG, "onFailure: ${t.message}")
             }
 
@@ -63,5 +67,13 @@ class following : Fragment() {
     private fun setFollowingData(items: List<UserFollowingResponseItem>) {
         followingAdapter.setFollowingData(items)
         showRecyclerCard()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            _binding?.progressBar?.visibility = View.VISIBLE
+        } else {
+            _binding?.progressBar?.visibility = View.GONE
+        }
     }
 }
