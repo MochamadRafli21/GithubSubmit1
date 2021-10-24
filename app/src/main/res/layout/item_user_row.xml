@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:layout_margin="20dp"
     android:layout_gravity="center">
 
@@ -18,46 +19,45 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginStart="112dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:maxLines="1"
+        android:paddingLeft="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="2dp"
+        android:text="@string/github_username"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user_profile_picture"
-        app:layout_constraintTop_toTopOf="@+id/user_profile_picture">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:paddingLeft="16dp"
-            android:paddingTop="12dp"
-            android:paddingBottom="2dp"
-            android:text="@string/github_username"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/user_html"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/github_username"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_profile_picture"
+        app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
-        <TextView
-            android:id="@+id/user_html"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:text="@string/github_username"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/user_company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:paddingStart="20dp"
-            android:text="@string/company1" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/user_company"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:paddingStart="20dp"
+        android:text="@string/company1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_profile_picture"
+        app:layout_constraintTop_toBottomOf="@+id/user_html" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
