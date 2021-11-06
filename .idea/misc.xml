@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.3234375" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.3234375" />
         <entry key="app/src/main/res/drawable/notsoroundstyle.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.334375" />
         <entry key="app/src/main/res/layout/activity_user_detail.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/fragment_follower.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/fragment_following.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/item_user_row.xml" value="0.1984375" />
+        <entry key="app/src/main/res/menu/option_menu.xml" value="0.2916666666666667" />
       </map>
     </option>
   </component>

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubsubmit1.databinding.FragmentFollowingBinding
+import com.example.githubsubmit1.ui.main.UserDetailActivity
 import retrofit2.Call
 import retrofit2.Response
 
